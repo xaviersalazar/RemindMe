@@ -56,10 +56,9 @@
     }
   },
   "lint-staged": {
-    "src/*.js": [
+    "src/*.{js,jsx}": [
       "yarn prettier --write",
-      "eslint --fix",
-      "git add"
+      "eslint --fix"
     ]
   },
   "jest": {
