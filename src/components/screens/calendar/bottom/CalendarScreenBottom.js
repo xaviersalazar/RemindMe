@@ -12,10 +12,8 @@ const StyledScreenLayout = styled(Layout)`
   border-top-right-radius: 50px;
 `;
 
-export const CalendarScreenBottom = () => {
-  return (
-    <StyledScreenLayout>
-      <Text category="h1">Bottom Calendar</Text>
-    </StyledScreenLayout>
-  );
-};
+export const CalendarScreenBottom = () => (
+  <StyledScreenLayout>
+    <Text category="h1">Bottom Calendar</Text>
+  </StyledScreenLayout>
+);

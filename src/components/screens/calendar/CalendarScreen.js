@@ -1,9 +1,9 @@
 import React from "react";
-import { CalendarScreenBottom } from "./bottom/CalendarScreenBottom";
-import { CalendarScreenTop } from "./top/CalendarScreenTop";
 import styled from "styled-components";
 import LinearGradient from "react-native-linear-gradient";
 import { Layout } from "@ui-kitten/components";
+import { CalendarScreenTop } from "./top/CalendarScreenTop";
+import { CalendarScreenBottom } from "./bottom/CalendarScreenBottom";
 import { colors } from "../../../../colors";
 
 const StyledLayout = styled(Layout)`
@@ -21,17 +21,15 @@ const StyledLinearGradient = styled(LinearGradient)`
   width: 100%;
 `;
 
-export const CalendarScreen = () => {
-  return (
-    <StyledLinearGradient
-      start={{ x: 0, y: 0 }}
-      end={{ x: 1, y: 1 }}
-      colors={[colors.linearGradient.one, colors.linearGradient.two]}
-    >
-      <StyledLayout>
-        <CalendarScreenTop />
-        <CalendarScreenBottom />
-      </StyledLayout>
-    </StyledLinearGradient>
-  );
-};
+export const CalendarScreen = () => (
+  <StyledLinearGradient
+    start={{ x: 0, y: 0 }}
+    end={{ x: 1, y: 1 }}
+    colors={[colors.linearGradient.one, colors.linearGradient.two]}
+  >
+    <StyledLayout>
+      <CalendarScreenTop />
+      <CalendarScreenBottom />
+    </StyledLayout>
+  </StyledLinearGradient>
+);

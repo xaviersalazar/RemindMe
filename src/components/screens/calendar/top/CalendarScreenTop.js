@@ -11,10 +11,8 @@ const StyledScreenLayout = styled(Layout)`
   background: transparent;
 `;
 
-export const CalendarScreenTop = () => {
-  return (
-    <StyledScreenLayout>
-      <Text category="h1">Top Calendar</Text>
-    </StyledScreenLayout>
-  );
-};
+export const CalendarScreenTop = () => (
+  <StyledScreenLayout>
+    <Text category="h1">Top Calendar</Text>
+  </StyledScreenLayout>
+);
