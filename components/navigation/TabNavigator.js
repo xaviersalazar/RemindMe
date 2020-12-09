@@ -2,8 +2,8 @@ import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Layout, Text } from "@ui-kitten/components";
-import { BottomTabNavigationBar } from "./BottomTabNavigationBar";
 import styled from "styled-components";
+import { BottomTabNavigationBar } from "./BottomTabNavigationBar";
 
 const { Navigator, Screen } = createBottomTabNavigator();
 

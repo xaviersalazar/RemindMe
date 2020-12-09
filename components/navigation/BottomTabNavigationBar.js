@@ -1,14 +1,14 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import allActions from "../../redux/actions";
 import {
   BottomNavigation,
   BottomNavigationTab,
   Layout,
   Icon,
 } from "@ui-kitten/components";
-import { colors } from "../../colors";
 import styled from "styled-components";
+import allActions from "../../redux/actions";
+import { colors } from "../../colors";
 
 const StyledTabLayout = styled(Layout)`
   position: absolute;
@@ -38,7 +38,9 @@ const StyledIcon = styled(Icon)`
 
 export const BottomTabNavigationBar = ({ navigation, state }) => {
   const dispatch = useDispatch();
-  const selectedIndex = useSelector((state) => state.tabNavigation.selectedTab);
+  const selectedIndex = useSelector(
+    (reduxState) => reduxState.tabNavigation.selectedTab
+  );
 
   const CalendarIcon = (props) => (
     <StyledIcon {...props} name="calendar-outline" />
@@ -64,15 +66,15 @@ export const BottomTabNavigationBar = ({ navigation, state }) => {
       >
         <StyledBottomNavigationTab
           icon={CalendarIcon}
-          isSelected={selectedIndex === 0 ? true : false}
+          isSelected={selectedIndex === 0}
         />
         <StyledBottomNavigationTab
           icon={BillsIcon}
-          isSelected={selectedIndex === 1 ? true : false}
+          isSelected={selectedIndex === 1}
         />
         <StyledBottomNavigationTab
           icon={SettingsIcon}
-          isSelected={selectedIndex === 2 ? true : false}
+          isSelected={selectedIndex === 2}
         />
       </StyledBottomNavigation>
     </StyledTabLayout>
