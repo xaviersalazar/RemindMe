@@ -10,7 +10,7 @@ import {
 import { EvaIconsPack } from "@ui-kitten/eva-icons";
 import * as eva from "@eva-design/eva";
 import styled from "styled-components";
-import { theme } from "./theme.json";
+import { default as theme } from "./theme.json";
 import { TabNavigator } from "./src/components/navigation/TabNavigator";
 import rootReducer from "./src/redux/reducers";
 

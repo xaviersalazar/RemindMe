@@ -5,6 +5,7 @@ import {
   BottomNavigationTab,
   Layout,
   Icon,
+  Text,
 } from "@ui-kitten/components";
 import styled from "styled-components";
 import allActions from "../../redux/actions";
@@ -14,26 +15,34 @@ const StyledTabLayout = styled(Layout)`
   position: absolute;
   bottom: 16px;
   margin: 0;
-  padding: 0;
+  padding: 0 16px;
   width: 100%;
+  background: transparent;
 `;
 
 const StyledBottomNavigation = styled(BottomNavigation)`
   margin-vertical: 8px;
+  border-radius: 50px;
+  border-color: transparent;
+  border: none;
+  box-shadow: ${(props) =>
+    props.selectedIndex === 0
+      ? "0 0 0 rgba(0,0,0,0)"
+      : `0 3px 13px rgba(81, 150, 255, 0.3)`};
+  background: #ffffff;
 `;
 
 const StyledBottomNavigationTab = styled(BottomNavigationTab)`
-  border-radius: 50px;
-  box-shadow: ${(props) =>
-    props.isSelected
-      ? `0 3px 13px rgba(${colors.primary.rgb}, 0.3)`
-      : "0 0 0 rgba(0, 0, 0, 0)"};
-  background: ${(props) => (props.isSelected ? "#ffffff" : "transparent")};
-  margin: 0 32px;
+  flex: 1;
+  flex-direction: row;
 `;
 
 const StyledIcon = styled(Icon)`
   color: ${colors.primary.hex};
+`;
+
+const StyledTabText = styled(Text)`
+  margin-left: 8px;
 `;
 
 export const BottomTabNavigationBar = ({ navigation, state }) => {
@@ -67,14 +76,29 @@ export const BottomTabNavigationBar = ({ navigation, state }) => {
         <StyledBottomNavigationTab
           icon={CalendarIcon}
           isSelected={selectedIndex === 0}
+          title={(evaProps) =>
+            selectedIndex === 0 && (
+              <StyledTabText {...evaProps}>Calendar</StyledTabText>
+            )
+          }
         />
         <StyledBottomNavigationTab
           icon={BillsIcon}
           isSelected={selectedIndex === 1}
+          title={(evaProps) =>
+            selectedIndex === 1 && (
+              <StyledTabText {...evaProps}>Bills</StyledTabText>
+            )
+          }
         />
         <StyledBottomNavigationTab
           icon={SettingsIcon}
           isSelected={selectedIndex === 2}
+          title={(evaProps) =>
+            selectedIndex === 2 && (
+              <StyledTabText {...evaProps}>Settings</StyledTabText>
+            )
+          }
         />
       </StyledBottomNavigation>
     </StyledTabLayout>

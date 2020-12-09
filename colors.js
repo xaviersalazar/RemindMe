@@ -1,14 +1,10 @@
 export const colors = {
   primary: {
-    hex: "#0046FF",
-    rgb: "0, 68, 255",
+    hex: "#5196FF",
+    rgb: "81, 150, 255",
   },
-  success: "#95D30E",
-  info: "#04DAF2",
-  warning: "#FCA93C",
-  danger: "#F9322F",
   linearGradient: {
-    one: "#7474BF",
-    two: "#348AC7",
+    one: "#48c6ef",
+    two: "#6f86d6",
   },
 };
