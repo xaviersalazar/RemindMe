@@ -1,12 +1,12 @@
-import { SET_SELECTED_TAB } from '../actionTypes';
+import { SET_SELECTED_TAB } from "../actionTypes";
 
-const setSelectedTab = index => {
+const setSelectedTab = (index) => {
   return {
     type: SET_SELECTED_TAB,
-    payload: index
-  }
+    payload: index,
+  };
 };
 
 export default {
-  setSelectedTab
+  setSelectedTab,
 };

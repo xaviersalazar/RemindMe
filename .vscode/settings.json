@@ -1,3 +1,35 @@
 {
-  "prettier.singleQuote": true
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
+  "emmet.syntaxProfiles": {
+    "javascript": "jsx",
+  },
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact"
+  },
+  "javascript.updateImportsOnFileMove.enabled": "never",
+  "breadcrumbs.enabled": true,
+  "editor.parameterHints.enabled": true,
+  "eslint.autoFixOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "eslint.validate": [
+    {
+      "language": "javascript",
+      "autoFix": true,
+    },
+    {
+      "language": "javascriptreact",
+      "autoFix": true,
+    },
+    {
+      "language": "typescript",
+      "autoFix": true,
+    },
+    {
+      "language": "typescriptreact",
+      "autoFix": true,
+    },
+  ]
 }

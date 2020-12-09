@@ -1,8 +1,8 @@
-import tabNavigation from './tabNavigation';
-import { combineReducers } from 'redux';
+import tabNavigation from "./tabNavigation";
+import { combineReducers } from "redux";
 
 const rootReducer = combineReducers({
-  tabNavigation
+  tabNavigation,
 });
 
 export default rootReducer;

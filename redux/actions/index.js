@@ -1,7 +1,7 @@
-import tabNavigationActions from './tabNavigationActions';
+import tabNavigationActions from "./tabNavigationActions";
 
 const allActions = {
-  tabNavigationActions
+  tabNavigationActions,
 };
 
 export default allActions;
