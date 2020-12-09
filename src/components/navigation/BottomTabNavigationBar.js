@@ -8,7 +8,7 @@ import {
 } from "@ui-kitten/components";
 import styled from "styled-components";
 import allActions from "../../redux/actions";
-import { colors } from "../../colors";
+import { colors } from "../../../colors";
 
 const StyledTabLayout = styled(Layout)`
   position: absolute;

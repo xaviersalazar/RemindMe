@@ -4,7 +4,7 @@ import { CalendarScreenTop } from "./top/CalendarScreenTop";
 import styled from "styled-components";
 import LinearGradient from "react-native-linear-gradient";
 import { Layout } from "@ui-kitten/components";
-import { colors } from "../../../colors";
+import { colors } from "../../../../colors";
 
 const StyledLayout = styled(Layout)`
   flex: 1;
