@@ -7,4 +7,8 @@ export const colors = {
   info: "#04DAF2",
   warning: "#FCA93C",
   danger: "#F9322F",
+  linearGradient: {
+    one: "#7474BF",
+    two: "#348AC7",
+  },
 };

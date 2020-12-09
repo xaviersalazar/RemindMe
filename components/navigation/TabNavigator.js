@@ -4,6 +4,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Layout, Text } from "@ui-kitten/components";
 import styled from "styled-components";
 import { BottomTabNavigationBar } from "./BottomTabNavigationBar";
+import { CalendarScreen } from "../screens/calendar/CalendarScreen";
 
 const { Navigator, Screen } = createBottomTabNavigator();
 
@@ -14,12 +15,6 @@ const StyledScreenLayout = styled(Layout)`
   height: 100%;
   width: 100%;
 `;
-
-const CalendarScreen = () => (
-  <StyledScreenLayout>
-    <Text category="h1">Calendar Screen</Text>
-  </StyledScreenLayout>
-);
 
 const BillsScreen = () => (
   <StyledScreenLayout>
