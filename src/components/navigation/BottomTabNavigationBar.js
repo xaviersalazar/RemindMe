@@ -37,10 +37,6 @@ const StyledBottomNavigationTab = styled(BottomNavigationTab)`
   flex-direction: row;
 `;
 
-const StyledIcon = styled(Icon)`
-  color: ${colors.primary.hex};
-`;
-
 const StyledTabText = styled(Text)`
   margin-left: 8px;
 `;
@@ -52,13 +48,27 @@ export const BottomTabNavigationBar = ({ navigation, state }) => {
   );
 
   const CalendarIcon = (props) => (
-    <StyledIcon {...props} name="calendar-outline" />
+    <Icon
+      {...props}
+      fill={selectedIndex === 0 ? colors.primary.hex : colors.fontColor}
+      name="calendar-outline"
+    />
   );
 
-  const BillsIcon = (props) => <StyledIcon {...props} name="layers-outline" />;
+  const BillsIcon = (props) => (
+    <Icon
+      {...props}
+      fill={selectedIndex === 1 ? colors.primary.hex : colors.fontColor}
+      name="layers-outline"
+    />
+  );
 
   const SettingsIcon = (props) => (
-    <StyledIcon {...props} name="options-2-outline" />
+    <Icon
+      {...props}
+      fill={selectedIndex === 2 ? colors.primary.hex : colors.fontColor}
+      name="options-2-outline"
+    />
   );
 
   const onSelectTab = (index) => {
