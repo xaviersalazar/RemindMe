@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Icon, Layout, Text } from "@ui-kitten/components";
+import { Calendar } from "./Calendar";
 import { colors } from "../../../../../colors";
 import styled from "styled-components";
 import moment from "moment";
@@ -51,24 +52,36 @@ const StyledIcon = styled(Icon)`
   margin: auto 0;
 `;
 
+const StyledYear = styled(Text)`
+  text-align: center;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-size: 12px;
+  color: #ffffff;
+`;
+
 export const CalendarScreenTop = () => {
   const [prevMonth, setPrevMonth] = useState(null);
   const [currMonth, setCurrMonth] = useState(null);
   const [nextMonth, setNextMonth] = useState(null);
+  const [year, setYear] = useState(null);
 
   useEffect(() => {
-    getMonths();
+    getMonthsAndYear();
   });
 
-  const getMonths = () => {
+  const getMonthsAndYear = () => {
     const now = new Date();
-    const prevMonth = moment(now).subtract(1, "month").format("MMM");
-    const currMonth = moment(now).format("MMM");
-    const nextMonth = moment(now).add(1, "month").format("MMM");
+    const monthPrev = moment(now).subtract(1, "month").format("MMM");
+    const monthCurr = moment(now).format("MMM");
+    const monthNext = moment(now).add(1, "month").format("MMM");
+    const currYear = moment(now).get("year").toString();
 
-    setPrevMonth(prevMonth);
-    setCurrMonth(currMonth);
-    setNextMonth(nextMonth);
+    setPrevMonth(monthPrev);
+    setCurrMonth(monthCurr);
+    setNextMonth(monthNext);
+    setYear(currYear);
   };
 
   return (
@@ -84,6 +97,8 @@ export const CalendarScreenTop = () => {
           <StyledIcon fill={colors.fontColor} name="arrow-forward-outline" />
         </StyledOtherMonthsLayout>
       </StyledMonthsLayout>
+      <StyledYear category="h1">{year}</StyledYear>
+      <Calendar />
     </StyledScreenLayout>
   );
 };
