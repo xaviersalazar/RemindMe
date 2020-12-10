@@ -50,7 +50,7 @@ export const BottomTabNavigationBar = ({ navigation, state }) => {
   const CalendarIcon = (props) => (
     <Icon
       {...props}
-      fill={selectedIndex === 0 ? colors.primary.hex : colors.fontColor}
+      fill={selectedIndex === 0 ? colors.primary.hex : colors.fontColor.hex}
       name="calendar-outline"
     />
   );
@@ -58,7 +58,7 @@ export const BottomTabNavigationBar = ({ navigation, state }) => {
   const BillsIcon = (props) => (
     <Icon
       {...props}
-      fill={selectedIndex === 1 ? colors.primary.hex : colors.fontColor}
+      fill={selectedIndex === 1 ? colors.primary.hex : colors.fontColor.hex}
       name="layers-outline"
     />
   );
@@ -66,7 +66,7 @@ export const BottomTabNavigationBar = ({ navigation, state }) => {
   const SettingsIcon = (props) => (
     <Icon
       {...props}
-      fill={selectedIndex === 2 ? colors.primary.hex : colors.fontColor}
+      fill={selectedIndex === 2 ? colors.primary.hex : colors.fontColor.hex}
       name="settings-2-outline"
     />
   );

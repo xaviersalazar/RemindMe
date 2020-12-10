@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Calendar as RNCalendar } from "react-native-calendars";
 import { Layout } from "@ui-kitten/components";
 import { colors } from "../../../../../colors";
+import allActions from "../../../../redux/actions";
 import moment from "moment";
 import styled from "styled-components";
 
@@ -14,17 +16,24 @@ const StyledLayout = styled(Layout)`
 `;
 
 export const Calendar = () => {
-  const [today, setToday] = useState(null);
+  const dispatch = useDispatch();
+  const selectedDay = useSelector((state) => state.calendar.selectedDay);
 
   useEffect(() => {
     setCurrentDay();
-  });
+  }, []);
 
   const setCurrentDay = () => {
     const now = new Date();
     const currDay = moment(now).format("YYYY-MM-DD");
 
-    setToday(currDay);
+    dispatch(allActions.calendarActions.setSelectedDay(currDay));
+  };
+
+  const setDay = (day) => {
+    const formattedDay = moment(day.dateString).format("YYYY-MM-DD");
+
+    dispatch(allActions.calendarActions.setSelectedDay(formattedDay));
   };
 
   return (
@@ -36,19 +45,19 @@ export const Calendar = () => {
           width: "100%",
           backgroundColor: `${colors.primary.hex}`,
         }}
-        onDayPress={(day) => console.log(day)}
+        onDayPress={(day) => setDay(day)}
         hideArrows={true}
         disableArrowLeft={true}
         disableArrowRight={true}
         markingType={"custom"}
         markedDates={{
-          [today]: {
+          [selectedDay]: {
             customStyles: {
               container: {
                 backgroundColor: "#ffffff",
               },
               text: {
-                color: "#222b45",
+                color: `${colors.fontColor.hex}`,
               },
             },
           },
@@ -64,7 +73,7 @@ export const Calendar = () => {
           textSectionTitleColor: "#ffffff",
           dayTextColor: "#ffffff",
           monthTextColor: "#ffffff",
-          textDisabledColor: `${colors.fontColor}`,
+          textDisabledColor: `${colors.fontColor.hex}`,
           arrowColor: "#ffffff",
           "stylesheet.calendar.header": {
             monthText: {

@@ -35,7 +35,7 @@ const StyledOtherMonths = styled(StyledMonth)`
   flex: 1;
   font-size: 24px;
   margin: auto 0;
-  color: ${colors.fontColor};
+  color: ${colors.fontColor.hex};
 `;
 
 const StyledOtherMonthsLayout = styled(Layout)`
@@ -88,13 +88,16 @@ export const CalendarScreenTop = () => {
     <StyledScreenLayout>
       <StyledMonthsLayout>
         <StyledOtherMonthsLayout>
-          <StyledIcon fill={colors.fontColor} name="arrow-back-outline" />
+          <StyledIcon fill={colors.fontColor.hex} name="arrow-back-outline" />
           <StyledOtherMonths category="h1">{prevMonth}</StyledOtherMonths>
         </StyledOtherMonthsLayout>
         <StyledCurrMonth category="h1">{currMonth}</StyledCurrMonth>
         <StyledOtherMonthsLayout>
           <StyledOtherMonths category="h1">{nextMonth}</StyledOtherMonths>
-          <StyledIcon fill={colors.fontColor} name="arrow-forward-outline" />
+          <StyledIcon
+            fill={colors.fontColor.hex}
+            name="arrow-forward-outline"
+          />
         </StyledOtherMonthsLayout>
       </StyledMonthsLayout>
       <StyledYear category="h1">{year}</StyledYear>
