@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Layout, Text } from "@ui-kitten/components";
+import { Icon, Layout, Text } from "@ui-kitten/components";
+import { colors } from "../../../../../colors";
 import styled from "styled-components";
 import moment from "moment";
 
@@ -20,7 +21,7 @@ const StyledMonthsLayout = styled(Layout)`
 `;
 
 const StyledMonth = styled(Text)`
-  flex: 1;
+  flex: 2;
   text-align: center;
 `;
 
@@ -29,7 +30,22 @@ const StyledCurrMonth = styled(StyledMonth)`
 `;
 
 const StyledOtherMonths = styled(StyledMonth)`
+  flex: 1;
   font-size: 24px;
+  margin: auto 0;
+`;
+
+const StyledOtherMonthsLayout = styled(Layout)`
+  flex: 1;
+  flex-direction: row;
+  background: transparent;
+  padding: 0 8px;
+`;
+
+const StyledIcon = styled(Icon)`
+  flex: 1;
+  height: 24px;
+  width: 24px;
   margin: auto 0;
 `;
 
@@ -56,9 +72,15 @@ export const CalendarScreenTop = () => {
   return (
     <StyledScreenLayout>
       <StyledMonthsLayout>
-        <StyledOtherMonths category="h1">{prevMonth}</StyledOtherMonths>
+        <StyledOtherMonthsLayout>
+          <StyledIcon fill={colors.fontColor} name="arrow-back-outline" />
+          <StyledOtherMonths category="h1">{prevMonth}</StyledOtherMonths>
+        </StyledOtherMonthsLayout>
         <StyledCurrMonth category="h1">{currMonth}</StyledCurrMonth>
-        <StyledOtherMonths category="h1">{nextMonth}</StyledOtherMonths>
+        <StyledOtherMonthsLayout>
+          <StyledOtherMonths category="h1">{nextMonth}</StyledOtherMonths>
+          <StyledIcon fill={colors.fontColor} name="arrow-forward-outline" />
+        </StyledOtherMonthsLayout>
       </StyledMonthsLayout>
     </StyledScreenLayout>
   );
