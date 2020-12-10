@@ -47,6 +47,7 @@
     "jest": "^25.1.0",
     "lint-staged": "^10.5.3",
     "metro-react-native-babel-preset": "^0.59.0",
+    "moment": "^2.29.1",
     "prettier": "^2.2.1",
     "react-test-renderer": "16.13.1"
   },
@@ -57,8 +58,7 @@
   },
   "lint-staged": {
     "src/**/*.{js,jsx}": [
-      "yarn prettier --write",
-      "eslint --fix"
+      "yarn prettier --write"
     ]
   },
   "jest": {
