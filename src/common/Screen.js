@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import LinearGradient from "react-native-linear-gradient";
 import { Layout } from "@ui-kitten/components";
 import { colors } from "../../colors";
 
@@ -10,21 +9,7 @@ const StyledLayout = styled(Layout)`
   width: 100%;
   justify-content: center;
   align-items: center;
-  background: rgba(255, 255, 255, 0.65);
+  background: ${colors.primary.hex};
 `;
 
-const StyledLinearGradient = styled(LinearGradient)`
-  flex: 1;
-  height: 100%;
-  width: 100%;
-`;
-
-export const Screen = ({ children }) => (
-  <StyledLinearGradient
-    start={{ x: 0, y: 0 }}
-    end={{ x: 1, y: 1 }}
-    colors={[colors.linearGradient.one, colors.linearGradient.two]}
-  >
-    <StyledLayout>{children}</StyledLayout>
-  </StyledLinearGradient>
-);
+export const Screen = ({ children }) => <StyledLayout>{children}</StyledLayout>;

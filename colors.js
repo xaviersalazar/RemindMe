@@ -1,11 +1,7 @@
 export const colors = {
   primary: {
-    hex: "#5196FF",
-    rgb: "81, 150, 255",
-  },
-  linearGradient: {
-    one: "#48c6ef",
-    two: "#6f86d6",
+    hex: "#0046FF",
+    rgb: "0, 70, 255",
   },
   fontColor: "#222b45",
 };

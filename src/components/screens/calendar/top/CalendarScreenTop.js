@@ -23,6 +23,7 @@ const StyledMonthsLayout = styled(Layout)`
 const StyledMonth = styled(Text)`
   flex: 2;
   text-align: center;
+  color: #ffffff;
 `;
 
 const StyledCurrMonth = styled(StyledMonth)`
@@ -73,13 +74,13 @@ export const CalendarScreenTop = () => {
     <StyledScreenLayout>
       <StyledMonthsLayout>
         <StyledOtherMonthsLayout>
-          <StyledIcon fill={colors.fontColor} name="arrow-back-outline" />
+          <StyledIcon fill="#ffffff" name="arrow-back-outline" />
           <StyledOtherMonths category="h1">{prevMonth}</StyledOtherMonths>
         </StyledOtherMonthsLayout>
         <StyledCurrMonth category="h1">{currMonth}</StyledCurrMonth>
         <StyledOtherMonthsLayout>
           <StyledOtherMonths category="h1">{nextMonth}</StyledOtherMonths>
-          <StyledIcon fill={colors.fontColor} name="arrow-forward-outline" />
+          <StyledIcon fill="#ffffff" name="arrow-forward-outline" />
         </StyledOtherMonthsLayout>
       </StyledMonthsLayout>
     </StyledScreenLayout>

@@ -8,8 +8,8 @@ const StyledScreenLayout = styled(Layout)`
   align-items: center;
   height: 100%;
   width: 100%;
-  border-top-left-radius: 50px;
-  border-top-right-radius: 50px;
+  border-top-left-radius: 35px;
+  border-top-right-radius: 35px;
 `;
 
 export const CalendarScreenBottom = () => (
