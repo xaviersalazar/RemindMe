@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Calendar as RNCalendar } from "react-native-calendars";
 import { Layout } from "@ui-kitten/components";
 import { colors } from "../../../../../colors";
+import moment from "moment";
 import styled from "styled-components";
 
 const StyledLayout = styled(Layout)`
@@ -13,6 +14,19 @@ const StyledLayout = styled(Layout)`
 `;
 
 export const Calendar = () => {
+  const [today, setToday] = useState(null);
+
+  useEffect(() => {
+    setCurrentDay();
+  });
+
+  const setCurrentDay = () => {
+    const now = new Date();
+    const currDay = moment(now).format("YYYY-MM-DD");
+
+    setToday(currDay);
+  };
+
   return (
     <StyledLayout>
       <RNCalendar
@@ -27,6 +41,18 @@ export const Calendar = () => {
         disableArrowLeft={true}
         disableArrowRight={true}
         markingType={"custom"}
+        markedDates={{
+          [today]: {
+            customStyles: {
+              container: {
+                backgroundColor: "#ffffff",
+              },
+              text: {
+                color: "#222b45",
+              },
+            },
+          },
+        }}
         theme={{
           backgroundColor: `${colors.primary.hex}`,
           calendarBackground: `${colors.primary.hex}`,

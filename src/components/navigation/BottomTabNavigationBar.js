@@ -67,7 +67,7 @@ export const BottomTabNavigationBar = ({ navigation, state }) => {
     <Icon
       {...props}
       fill={selectedIndex === 2 ? colors.primary.hex : colors.fontColor}
-      name="options-2-outline"
+      name="settings-2-outline"
     />
   );
 

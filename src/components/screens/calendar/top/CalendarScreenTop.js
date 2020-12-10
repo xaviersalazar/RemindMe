@@ -57,7 +57,7 @@ const StyledYear = styled(Text)`
   width: 100%;
   margin: 0;
   padding: 0;
-  font-size: 12px;
+  font-size: 10px;
   color: #ffffff;
 `;
 
@@ -68,10 +68,10 @@ export const CalendarScreenTop = () => {
   const [year, setYear] = useState(null);
 
   useEffect(() => {
-    getMonthsAndYear();
+    setMonthAndYear();
   });
 
-  const getMonthsAndYear = () => {
+  const setMonthAndYear = () => {
     const now = new Date();
     const monthPrev = moment(now).subtract(1, "month").format("MMM");
     const monthCurr = moment(now).format("MMM");
