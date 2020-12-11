@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Calendar as RNCalendar } from "react-native-calendars";
 import { Layout } from "@ui-kitten/components";
@@ -18,19 +18,21 @@ const StyledLayout = styled(Layout)`
 export const Calendar = () => {
   const dispatch = useDispatch();
   const selectedDay = useSelector((state) => state.calendar.selectedDay);
+  const selectedMonths = useSelector((state) => state.calendar.selectedMonths);
+  const { curr } = selectedMonths;
 
   useEffect(() => {
-    setCurrentDay();
+    setCurrentSelectedDay();
   }, []);
 
-  const setCurrentDay = () => {
+  const setCurrentSelectedDay = () => {
     const now = new Date();
     const currDay = moment(now).format("YYYY-MM-DD");
 
     dispatch(allActions.calendarActions.setSelectedDay(currDay));
   };
 
-  const setDay = (day) => {
+  const onDayPress = (day) => {
     const formattedDay = moment(day.dateString).format("YYYY-MM-DD");
 
     dispatch(allActions.calendarActions.setSelectedDay(formattedDay));
@@ -45,10 +47,12 @@ export const Calendar = () => {
           width: "100%",
           backgroundColor: `${colors.primary.hex}`,
         }}
-        onDayPress={(day) => setDay(day)}
+        key={curr}
+        current={curr ? moment(curr).toDate() : new Date()}
+        onDayPress={(day) => onDayPress(day)}
         hideArrows={true}
-        disableArrowLeft={true}
-        disableArrowRight={true}
+        disableArrowLeft={false}
+        disableArrowRight={false}
         markingType={"custom"}
         markedDates={{
           [selectedDay]: {

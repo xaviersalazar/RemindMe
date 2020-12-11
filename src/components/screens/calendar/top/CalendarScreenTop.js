@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react";
+import { TouchableWithoutFeedback } from "react-native";
+import { useDispatch, useSelector } from "react-redux";
 import { Icon, Layout, Text } from "@ui-kitten/components";
 import { Calendar } from "./Calendar";
 import { colors } from "../../../../../colors";
 import styled from "styled-components";
 import moment from "moment";
+import allActions from "../../../../redux/actions";
 
 const StyledScreenLayout = styled(Layout)`
   height: 50%;
@@ -52,55 +55,81 @@ const StyledIcon = styled(Icon)`
   margin: auto 0;
 `;
 
-const StyledYear = styled(Text)`
-  text-align: center;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  font-size: 10px;
-  color: #ffffff;
-`;
-
 export const CalendarScreenTop = () => {
-  const [prevMonth, setPrevMonth] = useState(null);
-  const [currMonth, setCurrMonth] = useState(null);
-  const [nextMonth, setNextMonth] = useState(null);
-  const [year, setYear] = useState(null);
+  const dispatch = useDispatch();
+  const selectedMonths = useSelector((state) => state.calendar.selectedMonths);
+  const { prev, curr, next } = selectedMonths;
 
   useEffect(() => {
-    setMonthAndYear();
-  });
+    setMonths();
+  }, []);
 
-  const setMonthAndYear = () => {
+  const setMonths = () => {
     const now = new Date();
-    const monthPrev = moment(now).subtract(1, "month").format("MMM");
-    const monthCurr = moment(now).format("MMM");
-    const monthNext = moment(now).add(1, "month").format("MMM");
-    const currYear = moment(now).get("year").toString();
+    const monthPrev = moment(now).subtract(1, "month");
+    const monthCurr = moment(now);
+    const monthNext = moment(now).add(1, "month");
+    const months = {
+      prev: monthPrev,
+      curr: monthCurr,
+      next: monthNext,
+    };
 
-    setPrevMonth(monthPrev);
-    setCurrMonth(monthCurr);
-    setNextMonth(monthNext);
-    setYear(currYear);
+    dispatch(allActions.calendarActions.setSelectedMonths(months));
+  };
+
+  const onPrevMonthPressed = () => {
+    const monthCurr = prev;
+    const monthNext = curr;
+    const monthPrev = moment(prev).subtract(1, "month");
+    const months = {
+      prev: monthPrev,
+      curr: monthCurr,
+      next: monthNext,
+    };
+
+    dispatch(allActions.calendarActions.setSelectedMonths(months));
+  };
+
+  const onNextMonthPressed = () => {
+    const monthCurr = next;
+    const monthPrev = curr;
+    const monthNext = moment(next).add(1, "month");
+    const months = {
+      prev: monthPrev,
+      curr: monthCurr,
+      next: monthNext,
+    };
+
+    dispatch(allActions.calendarActions.setSelectedMonths(months));
   };
 
   return (
     <StyledScreenLayout>
       <StyledMonthsLayout>
         <StyledOtherMonthsLayout>
-          <StyledIcon fill={colors.fontColor.hex} name="arrow-back-outline" />
-          <StyledOtherMonths category="h1">{prevMonth}</StyledOtherMonths>
+          <TouchableWithoutFeedback onPress={onPrevMonthPressed}>
+            <StyledIcon fill={colors.fontColor.hex} name="arrow-back-outline" />
+          </TouchableWithoutFeedback>
+          <StyledOtherMonths category="h1">
+            {moment(prev).format("MMM")}
+          </StyledOtherMonths>
         </StyledOtherMonthsLayout>
-        <StyledCurrMonth category="h1">{currMonth}</StyledCurrMonth>
+        <StyledCurrMonth category="h1">
+          {moment(curr).format("MMM")}
+        </StyledCurrMonth>
         <StyledOtherMonthsLayout>
-          <StyledOtherMonths category="h1">{nextMonth}</StyledOtherMonths>
-          <StyledIcon
-            fill={colors.fontColor.hex}
-            name="arrow-forward-outline"
-          />
+          <StyledOtherMonths category="h1">
+            {moment(next).format("MMM")}
+          </StyledOtherMonths>
+          <TouchableWithoutFeedback onPress={onNextMonthPressed}>
+            <StyledIcon
+              fill={colors.fontColor.hex}
+              name="arrow-forward-outline"
+            />
+          </TouchableWithoutFeedback>
         </StyledOtherMonthsLayout>
       </StyledMonthsLayout>
-      <StyledYear category="h1">{year}</StyledYear>
       <Calendar />
     </StyledScreenLayout>
   );
