@@ -12,7 +12,7 @@ const StyledLayout = styled(Layout)`
   height: 100%;
   width: 100%;
   background: transparent;
-  padding: 8px;
+  padding: 0 16px;
 `;
 
 export const Calendar = () => {

@@ -9,9 +9,8 @@ import moment from "moment";
 import allActions from "../../../../redux/actions";
 
 const StyledScreenLayout = styled(Layout)`
-  height: 50%;
   width: 100%;
-  flex: 1;
+  flex: 1.15;
   flex-direction: column;
   justify-content: space-between;
   background: transparent;

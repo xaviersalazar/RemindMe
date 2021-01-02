@@ -1,1 +1,3 @@
-React Native bill tracker
+# RemindMe
+
+A simple bill tracking application

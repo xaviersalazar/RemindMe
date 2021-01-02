@@ -10,7 +10,6 @@ const StyledScreenLayout = styled(Layout)`
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  height: 100%;
   width: 100%;
   border-top-left-radius: 35px;
   border-top-right-radius: 35px;
