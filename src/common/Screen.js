@@ -9,7 +9,9 @@ const StyledLayout = styled(Layout)`
   width: 100%;
   justify-content: center;
   align-items: center;
-  background: ${colors.primary.hex};
+  background: ${(props) => (props.bg ? props.bg : colors.primary.hex)};
 `;
 
-export const Screen = ({ children }) => <StyledLayout>{children}</StyledLayout>;
+export const Screen = ({ bg, children }) => (
+  <StyledLayout bg={bg}>{children}</StyledLayout>
+);

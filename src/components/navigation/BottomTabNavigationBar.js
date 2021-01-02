@@ -25,10 +25,7 @@ const StyledBottomNavigation = styled(BottomNavigation)`
   border-radius: 50px;
   border-color: transparent;
   border: none;
-  box-shadow: ${(props) =>
-    props.selectedIndex === 0
-      ? "0 0 0 rgba(0,0,0,0)"
-      : `0 3px 13px rgba(81, 150, 255, 0.3)`};
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0);
   background: #ffffff;
 `;
 
